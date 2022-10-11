@@ -34,5 +34,27 @@
                 </div>
             </div>
         </div>
+        <?php 
+        if(isset($_POST["login"])){
+            include "config.php";
+            $name = $_POST["username"];
+            $password = $_POST["password"];
+            $query = "SELECT`first_name`, `username`,`role` FROM `user` WHERE `username` = '{$name}' AND `password` = '{$password}'";
+            $result = mysqli_query($conn,$query);
+            if(mysqli_num_rows($result)>0){
+                while($row = mysqli_fetch_assoc($result)){
+                    session_start();
+                    $_SESSION["name"] =$row["username"];
+                    $_SESSION["fname"] =$row["first_name"];
+                    $_SESSION["role"] =$row["role"];
+                    header("location:http://localhost:82/KSTORE/admin/products.php");
+                }
+            }
+            else{
+                echo "Incorrect Information";
+            }
+        }
+        
+        ?>
     </body>
 </html>

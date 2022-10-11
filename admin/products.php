@@ -1,3 +1,13 @@
+<?php 
+
+// include "config.php";
+
+// session_start();
+// if(isset($_SESSION["name"])){
+//     header("location:http://localhost:82/KSTORE/admin/products.php");
+// }
+?>
+
 <?php include "header.php"; ?>
   <div id="admin-content">
       <div class="container">
