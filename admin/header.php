@@ -4,7 +4,7 @@ include "config.php";
 
 session_start();
 if(!isset($_SESSION["name"])){
-    header("location:http://localhost:82/KSTORE/admin");
+    header("location:http://localhost:82/KSTORE/admin/");
 }
 ?>
 
@@ -38,7 +38,7 @@ if(!isset($_SESSION["name"])){
                     <!-- /LOGO -->
                       <!-- LOGO-Out -->
                     <div class="col-md-offset-9  col-md-1">
-                        <a href="logout.php" class="admin-logout" >logout</a>
+                        <a href="logout.php" class="admin-logout" ><?php echo"@".$_SESSION["name"]."<br>"."<br>" ?>logout</a>
                     </div>
                     <!-- /LOGO-Out -->
                 </div>
@@ -54,12 +54,14 @@ if(!isset($_SESSION["name"])){
                             <li>
                                 <a href="products.php">Products</a>
                             </li>
+                            <?php if($_SESSION["role"] === "1"){?>
                             <li>
                                 <a href="category.php">Category</a>
                             </li>
                             <li>
                                 <a href="users.php">Users</a>
                             </li>
+                            <?php }?>
                         </ul>
                     </div>
                 </div>

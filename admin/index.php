@@ -1,3 +1,14 @@
+<?php 
+
+include "config.php";
+
+session_start();
+if(isset($_SESSION["name"])){
+    header("location:http://localhost:82/KSTORE/admin/products.php");
+}
+?>
+
+
 <!doctype html>
 <html>
    <head>
@@ -28,6 +39,8 @@
                                 <input type="password" name="password" class="form-control" placeholder="" required>
                             </div>
                             <input type="submit" name="login" class="btn btn-primary" value="login" />
+
+
                         </form>
                         <!-- /Form  End -->
                     </div>

@@ -1,4 +1,15 @@
-<?php include "header.php"; ?>
+<?php 
+
+?>
+
+<?php include "header.php"; 
+
+
+if($_SESSION["role"] === "0"){
+    header("location:http://localhost:82/KSTORE/admin/products.php");
+}
+
+?>
 <?php 
     include "config.php";
     $query = "SELECT * FROM `user`";
