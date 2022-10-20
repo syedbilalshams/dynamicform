@@ -1,4 +1,13 @@
 <?php include "header.php"; ?>
+<?php 
+$id = $_GET["id"];
+include "config.php";
+$query = "SELECT * FROM `category` WHERE category_id = '{$id}'";
+
+$result = mysqli_query($conn,$query);
+if(mysqli_num_rows($result)>0){
+
+?>
   <div id="admin-content">
       <div class="container">
           <div class="row">
@@ -7,17 +16,37 @@
               </div>
               <div class="col-md-offset-3 col-md-6">
                   <form action="" method ="POST">
+                      <?php  
+                      while($row = mysqli_fetch_assoc($result)){
+                      
+                      ?>
                       <div class="form-group">
-                          <input type="hidden" name="cat_id"  class="form-control" value="1" placeholder="">
+                          <input type="hidden" name="cat_id"  class="form-control" value="<?php echo $row["category_id"] ?>" placeholder="">
                       </div>
                       <div class="form-group">
                           <label>Category Name</label>
-                          <input type="text" name="cat_name" class="form-control" value="Html"  placeholder="" required>
+                          <input type="text" name="cat_name" class="form-control" value="<?php echo $row["category_name"] ?>"  placeholder="" required>
                       </div>
                       <input type="submit" name="sumbit" class="btn btn-primary" value="Update" required />
+                      <?php }?>
                   </form>
+                  <?php }?>
                 </div>
               </div>
             </div>
+                      
           </div>
+          <?php
+          if(isset($_POST["sumbit"])){
+
+
+            // echo"<pre>";
+            // print_r($_POST);
+              $cat_name = $_POST["cat_name"];
+          
+              $query1 ="UPDATE `category` SET`category_name`='{$cat_name}'";
+              mysqli_query($conn,$query1);
+              header("location:http://localhost:82/KSTORE/admin/category.php");
+           }
+          ?>
 <?php include "footer.php"; ?>

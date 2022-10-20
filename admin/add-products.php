@@ -20,15 +20,16 @@
                           <label for="exampleInputPassword1">Category</label>
                           <select name="category" class="form-control">
                               <option value="" disabled> Select Category</option>
-                              <?PHP 
-                               include "config.php";
-                               $query = "SELECT * FROM `category`";
-                               $result = mysqli_query($conn,$query);
-                               if(mysqli_num_rows($result)){
-                                   while($row = mysqli_fetch_assoc($result)){
-                                      echo "<option value=''>{$row['category_name']}</option>";
-                                   }
-                               }
+                              <?php 
+                             include "config.php";
+                             $query = "SELECT * FROM `category` ";
+                             $result = mysqli_query($conn,$query);
+
+                             if(mysqli_num_rows($result)>0){
+                                 while($rows = mysqli_fetch_assoc($result)){
+                                     echo "<option value='{$rows["category_id"]}'>{$rows["category_name"]}</option>";
+                                 }
+                             }
                               
                               
                               ?>
