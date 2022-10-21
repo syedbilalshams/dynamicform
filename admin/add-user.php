@@ -16,7 +16,7 @@
         include "config.php";
         $query = "INSERT INTO `user`(`first_name`, `last_name`, `username`, `password`, `role`) VALUES ('{$user_fname}','{$user_lname}','{$user_username}','{$user_password}','{$user_role}')";
         mysqli_query($conn,$query);
-        header("location:http://localhost:82/KSTORE/admin/users.php");
+        header("location:http://localhost/KSTORE/kstore/admin/users.php");
         }
         ?>
 

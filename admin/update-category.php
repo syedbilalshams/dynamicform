@@ -6,7 +6,14 @@ $query = "SELECT * FROM `category` WHERE category_id = '{$id}'";
 
 $result = mysqli_query($conn,$query);
 if(mysqli_num_rows($result)>0){
-
+  
+  if(isset($_POST["sumbit"])){
+    $cat_id = $_POST["cat_id"];
+      $cat_name = $_POST["cat_name"];
+       $query1 ="UPDATE `category` SET`category_name`='{$cat_name}' WHERE `category_id` = '{$cat_id}'";
+      mysqli_query($conn,$query1);
+      header("location:http://localhost/KSTORE/kstore/admin/category.php");
+   }
 ?>
   <div id="admin-content">
       <div class="container">
@@ -37,16 +44,5 @@ if(mysqli_num_rows($result)>0){
                       
           </div>
           <?php
-          if(isset($_POST["sumbit"])){
-
-
-            // echo"<pre>";
-            // print_r($_POST);
-              $cat_name = $_POST["cat_name"];
-          
-              $query1 ="UPDATE `category` SET`category_name`='{$cat_name}'";
-              mysqli_query($conn,$query1);
-              header("location:http://localhost:82/KSTORE/admin/category.php");
-           }
           ?>
 <?php include "footer.php"; ?>

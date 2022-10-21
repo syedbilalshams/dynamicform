@@ -4,7 +4,7 @@ include "config.php";
 
 session_start();
 if(!isset($_SESSION["name"])){
-    header("location:http://localhost:82/KSTORE/admin/");
+    header("location:http://localhost/KSTORE/kstore/admin/index.php");
 }
 ?>
 

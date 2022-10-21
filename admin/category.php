@@ -1,9 +1,3 @@
-<?php 
-    include "config.php";
-    $query = "SELECT * FROM `category`";
-    $result = mysqli_query($conn,$query);
-    if(mysqli_num_rows($result)>0){
-?>
 
 <?php include "header.php"; ?>
 <div id="admin-content">
@@ -24,12 +18,15 @@
                         <th>Edit</th>
                         <th>Delete</th>
                     </thead>
+                        <?php 
+                            include "config.php";
+                            $query = "SELECT * FROM `category`";
+                            $result = mysqli_query($conn,$query);
+                            if(mysqli_num_rows($result)>0){
+                        ?>
                     <tbody>
                     <?php
                           while($row = mysqli_fetch_assoc($result)){
-
-                          
-                          
                           ?>
                         <tr>
                             <td class='id'><?php echo $row["category_id"] ?></td>
@@ -38,6 +35,7 @@
                             <td class='edit'><a href='update-category.php?id=<?php echo $row["category_id"] ?>'><i class='fa fa-edit'></i></a></td>
                             <td class='delete'><a href='delete-category.php'><i class='fa fa-trash-o'></i></a></td>
                         </tr>
+                        <?php }?>
                     </tbody>
                     <?php }?>
                 </table>
@@ -50,5 +48,4 @@
         </div>
     </div>
 </div>
-                          <?php }?>
 <?php include "footer.php"; ?>

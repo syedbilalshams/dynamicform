@@ -6,7 +6,7 @@
 
 
 if($_SESSION["role"] === "0"){
-    header("location:http://localhost:82/KSTORE/admin/products.php");
+    header("location:http://localhost/KSTORE/kstore/admin/products.php");
 }
 
 ?>

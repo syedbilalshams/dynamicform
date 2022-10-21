@@ -16,5 +16,5 @@
       echo $query1 = "UPDATE `user` SET `first_name`='{$user_fname}',`last_name`='{$user_lname}',`username`='{$username}',`role`='{$user_role}' WHERE `user_id` = '{$uid}'";
  
       mysqli_query($conn,$query1);
-      header("location:http://localhost:82/KSTORE/admin/users.php");
+      header("location:http://localhost/KSTORE/kstore/admin/users.php");
   ?>

@@ -4,7 +4,7 @@ include "config.php";
 
 session_start();
 if(isset($_SESSION["name"])){
-    header("location:http://localhost:82/KSTORE/admin/products.php");
+    header("location:http://localhost/KSTORE/kstore/admin/products.php");
 }
 ?>
 
@@ -60,7 +60,7 @@ if(isset($_SESSION["name"])){
                     $_SESSION["name"] =$row["username"];
                     $_SESSION["fname"] =$row["first_name"];
                     $_SESSION["role"] =$row["role"];
-                    header("location:http://localhost:82/KSTORE/admin/products.php");
+                    header("location:http://localhost/KSTORE/kstore/admin/products.php");
                 }
             }
             else{

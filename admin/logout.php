@@ -2,7 +2,7 @@
 session_start();
 session_unset();
 session_destroy();
-header("location:http://localhost:82/KSTORE/admin");
+header("location:http://localhost/KSTORE/kstore/admin/");
 
 
 ?>

@@ -28,6 +28,7 @@
                       else{
                         $query = "INSERT INTO `category` (`category_name`) VALUES ('{$cat}')";
                         mysqli_query($conn,$query);
+                        header("location:http://localhost/KSTORE/kstore/admin/category.php");
                       }
                   }
                   
